@@ -9,6 +9,14 @@
 	#include "WProgram.h"
 #endif
 
+#define NORTH 1
+#define SOUTH 2
+#define EAST 3
+#define WEST 4
+
+void initializeMaze();
+Block currentBlock;
+
 
 #endif
 

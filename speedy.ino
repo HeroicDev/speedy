@@ -1,6 +1,5 @@
 #include "Maze.h"
 #include "Block.h"
-#include "MazeSolver.h"
 
 
 /*

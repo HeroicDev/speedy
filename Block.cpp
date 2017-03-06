@@ -25,8 +25,7 @@ class Block {
 			westWall = false;
 		}
 
-		void setDefaults()
-		{
+		void setDefaults() {
 			x = DEFAULT_VALUE;
 			y = DEFAULT_VALUE;
 			weight = DEFAULT_VALUE;
@@ -68,4 +67,8 @@ class Block {
 		}
 };
 
+//checks if this block has been mapped
+void setDefaults()
+{
 
+}
