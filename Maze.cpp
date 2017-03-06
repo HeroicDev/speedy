@@ -1,9 +1,13 @@
-/* 
+/*
  * Main Class to for the maze 
-*/
+ */
 
 //#include <QueueList.h>
+
 #include "Maze.h"
+#include <iostream>
+
+using namespace std;
 
 #define mazeSize 16
 
@@ -20,7 +24,8 @@ int currentY; //y location
 
 //the stack
 //Should be a stack of blocks not of ints
-int stack[mazeSize * mazeSize];
+Block stack[mazeSize * mazeSize];
+int stackIndex = 0;
 
 /*
  * Initilze the maze to the deault values
@@ -28,15 +33,26 @@ int stack[mazeSize * mazeSize];
  */
 void initializeMaze()
 {
+	int center = (mazeSize / 2);
+	int nX = nY = center; //neighbor location
+	Block cBlock = maze[center][center];
+
+	cBlock.x = center;
+	cBlock.y = center;
+	cBlock.weight = 0;
+
+	//set the block to the center
+	maze[center][center] = cBlock;
+	push(cBlock);
+
+	//treverse the maze and set the weight of each neighbor
+	
+
 	//set the center to 0
 	//set neighbor cell from the center to ++
-
-	//currentBlock.x = currentBlock.y = -1;
 	// assuming the currentBlock is still the default block
 	for (int i = 0; i < mazeSize; i++) {
 		for (int j = 0; j < mazeSize; j++) {
-			//currentBlock.x = j;
-			//currentBlock.y = i;
 			maze[i][j] = currentBlock;
 		}
 	}
@@ -44,6 +60,26 @@ void initializeMaze()
 	//set the current block to the first element
 	currentBlock.x = currentBlock.y = 0;
 	currentX = currentY = 0;
+}
+
+// remove a block off the top of the stack
+Block pop() {
+	Block b = stack[stackIndex];
+	stackIndex--;
+	return b;
+}
+
+// add a block to the top of the stack
+void push(Block b) {
+	stackIndex++;
+	stack[stackIndex] = b;
+}
+
+
+
+void updateDistances()
+{
+	int x = y = (mazeSize / 2);
 }
 
 /* Updates the current position of the mouse*/
@@ -119,7 +155,7 @@ void checkForWalls()
 void findShortestPath()
 {
 	//we should maybe set a flag saying the maze has been fully mapped
-	//starts from the top of the maze (0, 0) and tries to go from small to big in terms of weight
+	//starts from the top of the maze (0, 0) and tries to go from big to small in terms of weight
 	for (int i = 0; i < mazeSize; i++) {
 		for (int j = 0; j < mazeSize; j++) {
 
@@ -127,9 +163,12 @@ void findShortestPath()
 	}
 }
 
+/* Prints the entire maze to the screen
+ * Only used during testing not when the mouse is running
+ */
 void printMaze()
 {
-
+	
 }
 
 /*

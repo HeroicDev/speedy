@@ -16,9 +16,10 @@
 
 struct Block
 {
-	int x = -1;
-	int y = -1;
-	int weight = 0;
+	int x = 0;
+	int y = 0;
+	int weight = -1;
+	bool visited = false; //same as weight
 	bool northWall = false;
 	bool southWall = false;
 	bool eastWall = false;
