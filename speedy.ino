@@ -1,5 +1,4 @@
 #include "Maze.h"
-#include "Block.h"
 
 
 /*
@@ -20,8 +19,13 @@ void setup()
 /* add main program code here */
 void loop()
 {
+	//solve the maze if mouse is done mapping the maze
+	if (doneMapping) {
+		findShortestPath();
+	}
+
 	//keep navigating the maze;
-	while (currentBlock.unMapped()) {
+	while (currentBlock.weight == -1) {
 		mapCurrentBlock();
 		//moveToNextBlock();
 	}
