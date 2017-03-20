@@ -5,7 +5,7 @@
 //#include <QueueList.h>
 
 #include "Maze.h"
-#include <iostream>
+//#include <iostream>
 
 using namespace std;
 
@@ -34,7 +34,8 @@ int stackIndex = 0;
 void initializeMaze()
 {
 	int center = (mazeSize / 2);
-	int nX = nY = center; //neighbor location
+	int nX = center; //neighbor location
+	int xY = center;
 	Block cBlock = maze[center][center];
 
 	cBlock.x = center;
@@ -43,9 +44,10 @@ void initializeMaze()
 
 	//set the block to the center
 	maze[center][center] = cBlock;
-	push(cBlock);
+	push(cBlock); //push to stack
 
 	//treverse the maze and set the weight of each neighbor
+	
 	
 
 	//set the center to 0
@@ -60,6 +62,14 @@ void initializeMaze()
 	//set the current block to the first element
 	currentBlock.x = currentBlock.y = 0;
 	currentX = currentY = 0;
+}
+
+void updateNeighbors(int xLoc, int yLoc)
+{
+	//left neighbor
+	Block leftN = maze[xLoc - 1][yLoc];
+	Block rightN = maze[xLoc + 1][yLoc];
+
 }
 
 // remove a block off the top of the stack
@@ -79,7 +89,8 @@ void push(Block b) {
 
 void updateDistances()
 {
-	int x = y = (mazeSize / 2);
+	int x = (mazeSize / 2);
+	int y = x;
 }
 
 /* Updates the current position of the mouse*/
