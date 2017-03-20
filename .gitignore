@@ -47,6 +47,10 @@ Temporary Items
 .apdisk
 
 #Visual Studio Files
-/Debug
+Debug/
+Release/
 /_vum
-.vs
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.sln
