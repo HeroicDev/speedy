@@ -1,3 +1,4 @@
+#include <QueueList.h>
 #include "Maze.h"
 
 
@@ -10,24 +11,14 @@
 
 void setup()
 {
-
-  /* add setup code here */
+	/* add setup code here */
+	Serial.begin(9600);
 	initializeMaze();
-
 }
 
 /* add main program code here */
 void loop()
 {
-	//solve the maze if mouse is done mapping the maze
-	if (doneMapping) {
-		findShortestPath();
-	}
-
-	//keep navigating the maze;
-	while (currentBlock.weight == -1) {
-		mapCurrentBlock();
-		//moveToNextBlock();
-	}
-
+  Serial.println("initializing maze");
+	makeMove();
 }

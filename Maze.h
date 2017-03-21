@@ -31,14 +31,27 @@ extern Block currentBlock;
 extern bool doneMapping;
 
 //functions
-void initializeMaze();
-void trackPosition();
 void makeMove();
+void moveToDir(int direction);
+int getNextDir(Block blk);
+
+void createTestMaze();
+void initializeMaze();
+
+int calculateCenter(int x, int y);
+int calculateWeight(int x, int y, int desiredX, int desitedY);
+int getMinDistance(Block b);
+void pushNeighborsToStack(Block b);
+void printMaze();
+void printStack();
+
+//movements
 void moveForward();
-void getCoordinate();
-void mapCurrentBlock();
-void checkForWalls();
-void findShortestPath();
+void moveBackward();
+void moveLeft();
+void moveRight();
+
+void floodFill();
 
 
 #endif
