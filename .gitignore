@@ -49,7 +49,7 @@ Temporary Items
 #Visual Studio Files
 Debug/
 Release/
-/_vum
+_vm/
 .vs/
 *.vcxproj
 *.vcxproj.filters
